@@ -1,0 +1,34 @@
+<div class="dashboard-container">
+  <div class="wrapper">
+    <h2>{{ "Common.WelcomeMsg" | translate }}, {{ user.username }}!</h2>
+
+    <div
+      *ngIf="!hasGrant('CanViewTickets') && !hasGrant('CanViewTransactions')"
+      class="no-access-message"
+    >
+      {{ "Common.NoGrantsMsg" | translate }}
+    </div>
+
+    <p *ngIf="hasGrant('CanViewTransactions') || hasGrant('CanViewTickets')">
+      {{ "Common.GrantsMsg" | translate }}
+    </p>
+
+    <div class="card-container">
+      <div
+        *ngIf="hasGrant('CanViewTransactions')"
+        class="card"
+        routerLink="/transactions"
+      >
+        <h3 class="card-content">{{ "Common.Transactions" | translate }}</h3>
+      </div>
+
+      <div
+        *ngIf="hasGrant('CanViewTickets')"
+        class="card"
+        routerLink="/tickets"
+      >
+        <h3 class="card-content">{{ "Common.Tickets" | translate }}</h3>
+      </div>
+    </div>
+  </div>
+</div>

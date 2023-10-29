@@ -1,0 +1,122 @@
+<div class="ticket-detail-container" *ngIf="ticket; else noData">
+  <div class="wrapper">
+    <div class="header">
+      <a routerLink="/tickets" class="back">{{
+        "Common.BackToTickets" | translate
+      }}</a>
+    </div>
+
+    <h2>{{ "Tickets.TicketDetails" | translate }}</h2>
+    <div class="ticket-details">
+      <div class="ticket-info">
+        <p>
+          <strong>{{ "Tickets.TicketId" | translate }}</strong> {{ ticket?.id }}
+        </p>
+        <p>
+          <strong>{{ "Common.PlayerId" | translate }}</strong>
+          {{ ticket?.playerId }}
+        </p>
+        <p>
+          <strong>{{ "Tickets.CreatedAt" | translate }}</strong>
+          {{ ticket?.createdAt | date : "short" }}
+        </p>
+        <p>
+          <strong>{{ "Tickets.PayInAmount" | translate }}:</strong>
+          {{ ticket?.payInAmount }}
+        </p>
+        <p>
+          <strong>{{ "Tickets.PayOutAmount" | translate }}:</strong>
+          {{ ticket?.payOutAmount }}
+        </p>
+        <p>
+          <strong>{{ "Tickets.Currency" | translate }}:</strong>
+          {{ ticket?.currency }}
+        </p>
+        <p>
+          <strong>{{ "Tickets.Status" | translate }}:</strong>
+          {{ ticket?.status }}
+        </p>
+      </div>
+
+      <div class="ticket-bets">
+        <h3>{{ "Tickets.Bets" | translate }}</h3>
+        <ul>
+          <li *ngFor="let bet of ticket?.bets" class="sport-bet">
+            <p>
+              <strong>{{ "Tickets.Sport" | translate }}:</strong>
+              {{ bet.sport }}
+            </p>
+            <p>
+              <strong>{{ "Tickets.League" | translate }}:</strong>
+              {{ bet.league }}
+            </p>
+            <p>
+              <strong>{{ "Tickets.Market" | translate }}:</strong>
+              {{ bet.market }}
+            </p>
+            <p>
+              <strong>{{ "Tickets.Participants" | translate }}:</strong>
+              {{ bet.participants.join(", ") }}
+            </p>
+            <p>
+              <strong>{{ "Tickets.Odds" | translate }}:</strong> {{ bet.odds }}
+            </p>
+            <p>
+              <strong>{{ "Tickets.Status" | translate }}:</strong>
+              {{ bet.status }}
+            </p>
+            <p>
+              <strong>{{ "Tickets.StartTime" | translate }}:</strong>
+              {{ bet.startAt | date : "short" }}
+            </p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrapper">
+    <h3>{{ "Tickets.LinkedTransactions" | translate }}</h3>
+    <div class="linked-transactions" *ngIf="showLinkedTransactions">
+      <table>
+        <thead>
+          <tr>
+            <th>{{ "Common.Id" | translate }}</th>
+            <th>{{ "Common.PlayerId" | translate }}</th>
+            <th>{{ "Common.ExternalId" | translate }}</th>
+            <th>{{ "Transactions.Type" | translate }}</th>
+            <th>{{ "Common.Direction" | translate }}</th>
+            <th>{{ "Transactions.Provider" | translate }}</th>
+            <th>{{ "Common.Amount" | translate }}</th>
+            <th>{{ "Transactions.Date" | translate }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let transaction of linkedTransactions">
+            <td>{{ transaction.id }}</td>
+            <td>{{ transaction.playerId }}</td>
+            <td>{{ transaction.externalId }}</td>
+            <td>{{ transaction.type }}</td>
+            <td>{{ transaction.direction }}</td>
+            <td>{{ transaction.provider }}</td>
+            <td>{{ transaction.amount }} {{ transaction.currency }}</td>
+            <td>{{ transaction.createdAt | date : "short" }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <button
+      class="load-transactions-btn"
+      (click)="loadLinkedTransactions()"
+      *ngIf="!showLinkedTransactions"
+    >
+      {{ "Tickets.LoadLinkedTransactions" | translate }}
+    </button>
+  </div>
+</div>
+
+<ng-template #noData>
+  <div class="wrapper">
+    <p class="no-data">{{ "Tickets.NoTicketData" | translate }}</p>
+  </div>
+</ng-template>

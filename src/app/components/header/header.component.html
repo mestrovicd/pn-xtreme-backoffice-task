@@ -1,0 +1,22 @@
+<header class="app-header">
+  <div class="wrapper">
+    <div class="logo">Xtreme</div>
+    <div class="lang-selector">
+      <button (click)="switchLanguage('en')">EN</button>/
+      <button (click)="switchLanguage('hr')">HR</button>
+    </div>
+    <nav *ngIf="isUserLoggedIn()">
+      <ul>
+        <li>
+          <a routerLink="/dashboard">{{ "Common.Dashboard" | translate }}</a>
+        </li>
+        <li class="logout-btn">
+          <a (click)="logout()">{{ "Common.Logout" | translate }}</a>
+        </li>
+      </ul>
+    </nav>
+    <div *ngIf="!isUserLoggedIn()" class="login-btn">
+      <a routerLink="/login">{{ "Common.Login" | translate }}</a>
+    </div>
+  </div>
+</header>

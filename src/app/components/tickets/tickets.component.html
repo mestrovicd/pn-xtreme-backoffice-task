@@ -1,0 +1,63 @@
+<div class="tickets-container">
+  <div class="wrapper">
+    <div class="filter-section">
+      <h3>{{ "Common.Filters" | translate }}</h3>
+      <form (ngSubmit)="applyFilters()" [formGroup]="filterForm">
+        <input
+          formControlName="playerId"
+          placeholder="{{ 'Common.PlayerId' | translate }}"
+        />
+        <select formControlName="status">
+          <option value="" selected disabled>
+            {{ "Tickets.Status" | translate }}
+          </option>
+          <option *ngFor="let status of ticketStatuses" [value]="status">
+            {{ status }}
+          </option>
+        </select>
+        <label for="createdFrom"
+          >{{ "Common.DateFrom" | translate }}
+
+          <input type="date" formControlName="createdFrom" />
+        </label>
+        <label for="createdTo"
+          >{{ "Common.DateTo" | translate }}
+
+          <input type="date" formControlName="createdTo" />
+        </label>
+        <button type="submit">{{ "Common.ApplyFilters" | translate }}</button>
+      </form>
+    </div>
+
+    <div class="tickets-table">
+      <table>
+        <thead>
+          <tr>
+            <th>{{ "Common.Id" | translate }}</th>
+            <th>{{ "Common.PlayerId" | translate }}</th>
+            <th>{{ "Tickets.CreatedAt" | translate }}</th>
+            <th>{{ "Tickets.PayInAmount" | translate }}</th>
+            <th>{{ "Tickets.PayOutAmount" | translate }}</th>
+            <th>{{ "Tickets.Status" | translate }}</th>
+            <th>{{ "Common.Action" | translate }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let ticket of filteredTickets">
+            <td>{{ ticket.id }}</td>
+            <td>{{ ticket.playerId }}</td>
+            <td>{{ ticket.createdAt | date : "short" }}</td>
+            <td>{{ ticket.payInAmount }}</td>
+            <td>{{ ticket.payOutAmount }}</td>
+            <td>{{ ticket.status }}</td>
+            <td>
+              <button (click)="openTicketDetails(ticket.id)">
+                {{ "Common.Details" | translate }}
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

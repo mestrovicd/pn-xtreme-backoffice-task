@@ -1,0 +1,26 @@
+.container {
+  font-family: "Arial";
+}
+
+.title-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo {
+  width: 400px;
+  height: 100px;
+  background-size: cover;
+  background-image: url("../assets/branding/large-logo.png");
+}
+
+.title {
+  color: darkred;
+}

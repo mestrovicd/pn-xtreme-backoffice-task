@@ -1,0 +1,59 @@
+{
+  "Common": {
+    "Dashboard": "Nadzorna ploča",
+    "Logout": "Odjava",
+    "Login": "Prijava",
+    "WelcomeMsg": "Dobrodošli na Nadzornu ploču",
+    "GrantsMsg": "Na temelju vaših ovlasti imate pristup sljedećem:",
+    "NoGrantsMsg": "Na temelju vaših ovlasti nemate pristup stranicama za administraciju",
+    "Transactions": "Transakcije",
+    "Tickets": "Listići",
+    "Filters": "Filteri",
+    "ApplyFilters": "Primijeni Filtere",
+    "BackToTickets": "Natrag na listiće",
+    "BackToTransactions": "Natrag na transakcije",
+    "PlayerId": "ID igrača",
+    "Id": "ID",
+    "Action": "Akcije",
+    "Details": "Detalji",
+    "Amount": "Iznos",
+    "ExternalId": "Vanjski ID",
+    "Direction": "Smjer",
+    "DateFrom": "Od",
+    "DateTo": "Do"
+  },
+  "Login": {
+    "LoginError": "",
+    "Login": "Prijava",
+    "Username": "Korisničko ime",
+    "Password": "Lozinka",
+    "LoginBtn": "Prijavi se"
+  },
+  "Transactions": {
+    "NoTransactionData": "Nema dostupnih podataka o transakciji za ovaj ID transakcije",
+    "TransactionDetails": "Detalji transakcije",
+    "TransactionId": "ID transakcije",
+    "Type": "Vrsta",
+    "Date": "Datum",
+    "Provider": "Pružatelj"
+  },
+  "Tickets": {
+    "NoTicketData": "Nema dostupnih podataka o ulaznici za ovaj ID ulaznice",
+    "TicketDetails": "Detalji listića",
+    "TicketId": "ID listića",
+    "CreatedAt": "Kreirano",
+    "PayInAmount": "Iznos uplate",
+    "PayOutAmount": "Iznos isplate",
+    "Status": "Status",
+    "Currency": "Valuta",
+    "Bets": "Oklade",
+    "Sport": "Sport",
+    "League": "Liga",
+    "Market": "Tržište",
+    "Participants": "Sudionici",
+    "Odds": "Koeficijenti",
+    "StartTime": "Vrijeme početka",
+    "LinkedTransactions": "Povezane transakcije",
+    "LoadLinkedTransactions": "Učitaj povezane transakcije"
+  }
+}

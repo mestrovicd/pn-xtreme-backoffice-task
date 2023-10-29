@@ -1,0 +1,59 @@
+{
+  "Common": {
+    "Dashboard": "Dashboard",
+    "Logout": "Logout",
+    "Login": "Login",
+    "WelcomeMsg": "Welcome to the Dashboard",
+    "GrantsMsg": "Based on your grants, you have access to the following:",
+    "NoGrantsMsg": "Based on your grants, you don't have access to administration pages",
+    "Transactions": "Transactions",
+    "Tickets": "Tickets",
+    "Filters": "Filters",
+    "ApplyFilters": "Apply Filters",
+    "BackToTickets": "Back to tickets",
+    "BackToTransactions": "Back to transactions",
+    "PlayerId": "Player ID",
+    "Id": "ID",
+    "Action": "Action",
+    "Details": "Details",
+    "Amount": "Amount",
+    "ExternalId": "External ID",
+    "Direction": "Direction",
+    "DateFrom": "From",
+    "DateTo": "To"
+  },
+  "Login": {
+    "LoginError": "",
+    "Login": "Login",
+    "Username": "Username",
+    "Password": "Password",
+    "LoginBtn": "Login"
+  },
+  "Transactions": {
+    "NoTransactionData": "No transaction data is available for this transaction ID",
+    "TransactionDetails": "Transaction Details",
+    "TransactionId": "Transaction ID",
+    "Type": "Type",
+    "Date": "Date",
+    "Provider": "Provider"
+  },
+  "Tickets": {
+    "NoTicketData": "No ticket data is available for this ticket ID",
+    "TicketDetails": "Ticket Details",
+    "TicketId": "Ticket ID",
+    "CreatedAt": "Created At",
+    "PayInAmount": "Pay-In Amount",
+    "PayOutAmount": "Pay-Out Amount",
+    "Status": "Status",
+    "Currency": "Currency",
+    "Bets": "Bets",
+    "Sport": "Sport",
+    "League": "League",
+    "Market": "Market",
+    "Participants": "Participants",
+    "Odds": "Odds",
+    "StartTime": "Start Time",
+    "LinkedTransactions": "Linked Transactions",
+    "LoadLinkedTransactions": "Load Linked Transactions"
+  }
+}

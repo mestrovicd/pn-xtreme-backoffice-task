@@ -1,0 +1,51 @@
+<div class="transaction-detail-container" *ngIf="transaction; else noData">
+  <div class="wrapper">
+    <div class="header">
+      <a routerLink="/transactions" class="back">{{
+        "Common.BackToTransactions" | translate
+      }}</a>
+    </div>
+
+    <h2>{{ "Transactions.TransactionDetails" | translate }}</h2>
+    <div class="transaction-details">
+      <p>
+        <strong>{{ "Common.Id" | translate }}:</strong> {{ transaction.id }}
+      </p>
+      <p>
+        <strong>{{ "Common.PlayerId" | translate }}:</strong>
+        {{ transaction.playerId }}
+      </p>
+      <p>
+        <strong>{{ "Common.ExternalId" | translate }}:</strong>
+        {{ transaction.externalId }}
+      </p>
+      <p>
+        <strong>{{ "Transactions.Type" | translate }}:</strong>
+        {{ transaction.type }}
+      </p>
+      <p>
+        <strong>{{ "Common.Direction" | translate }}:</strong>
+        {{ transaction.direction }}
+      </p>
+      <p>
+        <strong>{{ "Transactions.Provider" | translate }}:</strong>
+        {{ transaction.provider }}
+      </p>
+      <p>
+        <strong>{{ "Common.Amount" | translate }}:</strong>
+        {{ transaction.amount }}
+        {{ transaction.currency }}
+      </p>
+      <p>
+        <strong>{{ "Transactions.Date" | translate }}:</strong>
+        {{ transaction.createdAt }}
+      </p>
+    </div>
+  </div>
+</div>
+
+<ng-template #noData>
+  <div class="wrapper">
+    <p class="no-data">{{ "Transactions.NoTransactionData" | translate }}</p>
+  </div>
+</ng-template>

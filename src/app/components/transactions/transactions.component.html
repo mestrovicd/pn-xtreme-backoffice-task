@@ -1,0 +1,98 @@
+<div class="transactions-container">
+  <div class="wrapper">
+    <div class="filter-section">
+      <h3>{{ "Common.Filters" | translate }}</h3>
+      <form (ngSubmit)="applyFilters()" [formGroup]="filterForm">
+        <input
+          formControlName="playerId"
+          placeholder="{{ 'Common.PlayerId' | translate }}"
+        />
+        <input
+          formControlName="externalId"
+          placeholder="{{ 'Common.ExternalId' | translate }}"
+        />
+        <select formControlName="type">
+          <option value="" selected disabled>
+            {{ "Transactions.Type" | translate }}
+          </option>
+          <option *ngFor="let type of transactionTypes" [value]="type">
+            {{ type }}
+          </option>
+        </select>
+        <select formControlName="direction">
+          <option value="" selected disabled>
+            {{ "Common.Direction" | translate }}
+          </option>
+          <option *ngFor="let dir of transactionDirections" [value]="dir">
+            {{ dir }}
+          </option>
+        </select>
+        <select formControlName="provider">
+          <option value="" selected disabled>
+            {{ "Transactions.Provider" | translate }}
+          </option>
+          <option *ngFor="let prov of transactionProviders" [value]="prov">
+            {{ prov }}
+          </option>
+        </select>
+        <label for="createdFrom"
+          >{{ "Common.DateFrom" | translate }}
+          <input type="date" formControlName="createdTo" />
+        </label>
+        <label for="createdFrom"
+          >{{ "Common.DateTo" | translate }}
+          <input type="date" formControlName="createdTo" />
+        </label>
+        <button type="submit">{{ "Common.ApplyFilters" | translate }}</button>
+      </form>
+    </div>
+
+    <div class="transactions-table">
+      <table>
+        <thead>
+          <tr>
+            <th>{{ "Common.Id" | translate }}</th>
+            <th>{{ "Common.PlayerId" | translate }}</th>
+            <th>{{ "Transactions.Type" | translate }}</th>
+            <th>{{ "Common.Amount" | translate }}</th>
+            <th>{{ "Transactions.Date" | translate }}</th>
+            <th>{{ "Common.Action" | translate }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let transaction of filteredTransactions">
+            <td>{{ transaction.id }}</td>
+            <td>{{ transaction.playerId }}</td>
+            <td>{{ transaction.type }}</td>
+            <td>{{ transaction.amount }} {{ transaction.currency }}</td>
+            <td>{{ transaction.createdAt | date : "short" }}</td>
+            <td>
+              <button (click)="openTransactionDetails(transaction.id)">
+                {{ "Common.Details" | translate }}
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <!-- <div class="wrapper">
+    <div class="aggregations">
+      <h3>Type-wise Aggregations</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Type</th>
+            <th>Total Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let type of transactionTypes">
+            <td>{{ type }}</td>
+            <td>{{ typeAggregations[type] | currency : "EUR" }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div> -->
+</div>
